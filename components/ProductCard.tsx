@@ -7,15 +7,19 @@ type ProductCardProps = {
 };
 
 export default function ProductCard({ product }: ProductCardProps) {
+  const image = product.image;
+
   return (
     <article className="group overflow-hidden rounded-[2rem] border border-jabutta-maroon/10 bg-jabutta-ivory shadow-card transition hover:-translate-y-1 hover:shadow-soft">
-      <div className="relative aspect-[4/3] overflow-hidden bg-jabutta-cream">
+      <div className={`relative ${image.aspectClass} overflow-hidden bg-jabutta-cream`}>
         <Image
-          src={product.image}
-          alt={product.imageAlt}
-          fill
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
           sizes="(min-width: 1024px) 42vw, 92vw"
-          className="object-cover transition duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+          style={{ objectPosition: image.objectPosition }}
         />
         <div className="absolute left-5 top-5 rounded-full bg-jabutta-maroon px-4 py-2 text-sm font-bold text-white shadow-card">
           {product.price}

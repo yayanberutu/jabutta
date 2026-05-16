@@ -1,6 +1,10 @@
+import Image from "next/image";
+import { productImages } from "@/data/images";
 import type { EventUseCase } from "@/data/events";
 import { eventUseCases } from "@/data/events";
 import { createWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
+
+const eventImage = productImages.mieSopBanyak;
 
 function EventIcon({ icon }: { icon: EventUseCase["icon"] }) {
   const common = "h-7 w-7";
@@ -30,14 +34,6 @@ function EventIcon({ icon }: { icon: EventUseCase["icon"] }) {
     );
   }
 
-  if (icon === "cup") {
-    return (
-      <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path d="M6 8h10v5a5 5 0 0 1-10 0V8Zm10 2h1.5a2.5 2.5 0 0 1 0 5H16M7 20h8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  }
-
   if (icon === "briefcase") {
     return (
       <svg className={common} viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -58,13 +54,11 @@ export default function EventSection() {
     <section id="acara" className="relative overflow-hidden py-20 sm:py-24">
       <div className="absolute inset-x-0 top-12 -z-10 h-72 bg-jabutta-maroon/5" />
       <div className="container-page">
-        <div className="grid gap-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-center">
           <div>
             <p className="section-kicker">Untuk momen kumpul</p>
             <h2 className="section-title">Cocok untuk Kumpul dan Acara Keluarga</h2>
-          </div>
-          <div>
-            <p className="section-copy mt-0">
+            <p className="section-copy">
               Mau pesan untuk acara kecil atau besar? Jabutta siap bantu siapkan hidangan hangat dan camilan renyah untuk
               momen kumpulmu.
             </p>
@@ -72,9 +66,27 @@ export default function EventSection() {
               Konsultasi Pesanan via WhatsApp
             </a>
           </div>
+
+          <div className="rounded-[2rem] border border-jabutta-maroon/10 bg-jabutta-ivory p-3 shadow-soft">
+            <div className="relative aspect-[3/4] max-h-[32rem] overflow-hidden rounded-[1.5rem] bg-jabutta-cream lg:max-h-[34rem]">
+              <Image
+                src={eventImage.src}
+                alt={eventImage.alt}
+                width={eventImage.width}
+                height={eventImage.height}
+                sizes="(min-width: 1024px) 44vw, 92vw"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: eventImage.objectPosition }}
+              />
+              <div className="absolute inset-x-4 bottom-4 rounded-3xl bg-jabutta-deep/82 p-4 text-jabutta-ivory shadow-card backdrop-blur">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-jabutta-gold">Partai kecil & besar</p>
+                <p className="mt-1 font-heading text-2xl font-bold">Mie Sop siap untuk meja acara.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
           {eventUseCases.map((item) => (
             <article key={item.title} className="rounded-3xl border border-jabutta-maroon/10 bg-jabutta-ivory p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-card">
               <div className="grid h-14 w-14 place-items-center rounded-2xl bg-jabutta-maroon text-jabutta-ivory">

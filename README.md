@@ -117,14 +117,12 @@ sudo journalctl -u caddy -f
 ## Hal Yang Perlu Diganti
 
 - Domain sementara `jabutta.berutu.dev` di `lib/constants.ts`, metadata `app/layout.tsx`, dan Caddyfile.
-- Foto produk di `public/images/`:
-  - `hero-jabutta.jpg`
-  - `roti-ketawa-1.jpg`
-  - `roti-ketawa-2.jpg`
-  - `mie-sop-1.jpg`
-  - `mie-sop-2.jpg`
-  - `packing-jabutta.jpg`
-  - `og-image.jpg`
-- Metadata SEO dan Open Graph di `app/layout.tsx` jika copy, domain, atau gambar utama berubah.
+- Foto produk asli di `public/images/`:
+  - `mie-sop-closeup.jpeg`
+  - `mie-sop-banyak.jpeg`
+  - `roti-ketawa-display.jpeg`
+  - `roti-ketawa-handheld.jpeg`
+- Mapping foto utama ada di `data/images.ts`, lalu dipakai oleh data produk dan galeri.
+- Metadata SEO dan Open Graph di `app/layout.tsx` jika copy, domain, atau gambar utama berubah. Saat ini Open Graph memakai `roti-ketawa-display.jpeg` sebagai fallback sampai tersedia `public/images/og-image.jpg`.
 - Nomor WhatsApp di `lib/constants.ts` jika nomor berubah.
 - Data produk, galeri, dan acara di folder `data/` jika menu atau harga berubah.

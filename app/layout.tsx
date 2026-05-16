@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { openGraphImage } from "@/data/images";
 import { BRAND_NAME, SITE_URL, TAGLINE } from "@/lib/constants";
 
 const title = "Kedai Jabutta - Mie Sop Medan & Roti Ketawa Siantar di Jakarta";
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: openGraphImage.src,
+        width: openGraphImage.width,
+        height: openGraphImage.height,
         alt: `${BRAND_NAME} - ${TAGLINE}`,
       },
     ],
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/images/og-image.jpg"],
+    images: [openGraphImage.src],
   },
   alternates: {
     canonical: SITE_URL,

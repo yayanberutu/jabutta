@@ -1,7 +1,7 @@
 export type EventUseCase = {
   title: string;
   description: string;
-  icon: "plate" | "cross" | "home" | "cup" | "briefcase" | "gift";
+  icon: "plate" | "cross" | "home" | "briefcase" | "gift";
 };
 
 export const eventUseCases: EventUseCase[] = [
@@ -19,11 +19,6 @@ export const eventUseCases: EventUseCase[] = [
     title: "Kumpul keluarga",
     description: "Rasa kampung yang mudah dinikmati semua generasi.",
     icon: "home",
-  },
-  {
-    title: "Nongkrong santai",
-    description: "Camilan renyah dan sop hangat untuk teman ngobrol.",
-    icon: "cup",
   },
   {
     title: "Acara kantor kecil",

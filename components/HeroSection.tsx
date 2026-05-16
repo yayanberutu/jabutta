@@ -1,8 +1,11 @@
 import Image from "next/image";
+import { productImages } from "@/data/images";
 import { BRAND_NAME, TAGLINE } from "@/lib/constants";
 import { createWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 
 const heroStats = ["Mie Sop Medan", "Roti Ketawa Siantar", "Siap acara keluarga"];
+const mainImage = productImages.mieSopCloseup;
+const supportingImage = productImages.rotiKetawaDisplay;
 
 export default function HeroSection() {
   return (
@@ -40,18 +43,20 @@ export default function HeroSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-xl">
+        <div className="relative mx-auto w-full max-w-xl pb-12 sm:pb-16">
           <div className="absolute -left-4 top-8 h-24 w-24 rounded-full border border-jabutta-gold/40 sm:-left-8" />
           <div className="absolute -right-4 bottom-16 h-32 w-32 rounded-full bg-jabutta-maroon/10" />
           <div className="relative overflow-hidden rounded-[2rem] border border-white/70 bg-jabutta-ivory p-3 shadow-soft">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-[1.5rem] bg-jabutta-cream">
+            <div className="relative aspect-[1219/1140] overflow-hidden rounded-[1.5rem] bg-jabutta-cream">
               <Image
-                src="/images/hero-jabutta.jpg"
-                alt="Mie Sop Medan dan Roti Ketawa Siantar Kedai Jabutta"
-                fill
+                src={mainImage.src}
+                alt={mainImage.alt}
+                width={mainImage.width}
+                height={mainImage.height}
                 priority
                 sizes="(min-width: 1024px) 46vw, 92vw"
-                className="object-cover"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: mainImage.objectPosition }}
               />
               <div className="absolute inset-x-4 bottom-4 rounded-3xl border border-white/60 bg-jabutta-ivory/90 p-4 shadow-card backdrop-blur">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-jabutta-gold">Siap dipesan</p>
@@ -59,9 +64,17 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          <div className="absolute -bottom-6 left-4 hidden w-56 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-ivory p-3 shadow-card sm:block">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-2xl bg-jabutta-cream">
-              <Image src="/images/roti-ketawa-2.jpg" alt="Close-up Roti Ketawa Siantar" fill sizes="14rem" className="object-cover" />
+          <div className="absolute -bottom-1 right-4 w-36 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-ivory p-2 shadow-card sm:-bottom-2 sm:right-auto sm:left-4 sm:w-48">
+            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-jabutta-cream">
+              <Image
+                src={supportingImage.src}
+                alt={supportingImage.alt}
+                width={supportingImage.width}
+                height={supportingImage.height}
+                sizes="(min-width: 640px) 12rem, 9rem"
+                className="h-full w-full object-cover"
+                style={{ objectPosition: supportingImage.objectPosition }}
+              />
             </div>
           </div>
         </div>
