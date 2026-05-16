@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #f8ecd9;
+  --foreground: #3c1712;
+  --font-heading: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Avenir Next", "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at top left, rgba(180, 122, 43, 0.16), transparent 34rem),
+    linear-gradient(180deg, #f8ecd9 0%, #fbf3e8 55%, #f6e7d1 100%);
+  color: var(--foreground);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+a {
+  text-decoration: none;
+}
+
+section[id] {
+  scroll-margin-top: 6rem;
+}
+
+::selection {
+  background: rgba(107, 31, 40, 0.18);
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-8;
+  }
+
+  .section-kicker {
+    @apply text-sm font-bold uppercase tracking-[0.28em] text-jabutta-gold;
+  }
+
+  .section-title {
+    @apply mt-3 text-4xl font-bold leading-tight text-jabutta-deep sm:text-5xl;
+  }
+
+  .section-copy {
+    @apply mt-4 max-w-2xl text-base leading-8 text-jabutta-brown sm:text-lg;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-jabutta-maroon px-6 py-3 text-sm font-bold text-white shadow-card transition hover:-translate-y-0.5 hover:bg-jabutta-deep focus:outline-none focus:ring-4 focus:ring-jabutta-gold/30;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-full border border-jabutta-maroon/20 bg-jabutta-ivory px-6 py-3 text-sm font-bold text-jabutta-maroon shadow-sm transition hover:-translate-y-0.5 hover:border-jabutta-gold hover:text-jabutta-deep focus:outline-none focus:ring-4 focus:ring-jabutta-gold/20;
+  }
+}
