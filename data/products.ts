@@ -1,3 +1,4 @@
+import { productImages, type ImageAsset } from "@/data/images";
 import { whatsappMessages } from "@/lib/whatsapp";
 
 export type Product = {
@@ -5,8 +6,7 @@ export type Product = {
   name: string;
   description: string;
   price: string;
-  image: string;
-  imageAlt: string;
+  image: ImageAsset;
   ctaLabel: string;
   whatsappMessage: string;
   highlights: string[];
@@ -19,8 +19,7 @@ export const products: Product[] = [
     description:
       "Camilan renyah dengan rasa manis gurih, cocok untuk teman cerita, kumpul keluarga, dan oleh-oleh.",
     price: "Rp20.000 / bungkus",
-    image: "/images/roti-ketawa-1.jpg",
-    imageAlt: "Roti Ketawa Siantar Kedai Jabutta dalam standing pouch",
+    image: productImages.rotiKetawaDisplay,
     ctaLabel: "Pesan Roti Ketawa",
     whatsappMessage: whatsappMessages.rotiKetawa,
     highlights: ["Renyah", "Manis gurih", "Cocok untuk oleh-oleh"],
@@ -31,8 +30,7 @@ export const products: Product[] = [
     description:
       "Hidangan hangat khas Medan dengan mie/bihun, ayam suwir, telur rebus, sambal hijau, dan kerupuk pink.",
     price: "Rp30.000 / porsi",
-    image: "/images/mie-sop-1.jpg",
-    imageAlt: "Mie Sop Medan Kedai Jabutta dalam paper bowl",
+    image: productImages.mieSopCloseup,
     ctaLabel: "Pesan Mie Sop Medan",
     whatsappMessage: whatsappMessages.mieSop,
     highlights: ["Hangat", "Gurih nikmat", "Lengkap dengan topping"],
