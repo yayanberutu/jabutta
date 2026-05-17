@@ -58,7 +58,7 @@ export default function HeroSection() {
                 className="h-full w-full object-cover"
                 style={{ objectPosition: mainImage.objectPosition }}
               />
-              <div className="absolute inset-x-4 bottom-4 rounded-3xl border border-white/60 bg-jabutta-ivory/90 p-4 shadow-card backdrop-blur">
+              <div className="absolute inset-x-4 bottom-4 sm:left-auto sm:right-4 sm:max-w-[20rem] rounded-3xl border border-white/60 bg-jabutta-ivory/90 p-4 shadow-card backdrop-blur">
                 <p className="text-xs font-bold uppercase tracking-[0.22em] text-jabutta-gold">Siap dipesan</p>
                 <p className="mt-1 font-heading text-2xl font-bold text-jabutta-deep">Hangat, renyah, rumahan.</p>
               </div>
