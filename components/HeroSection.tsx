@@ -64,7 +64,7 @@ export default function HeroSection() {
               </div>
             </div>
           </div>
-          <div className="absolute -bottom-1 right-4 w-36 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-ivory p-2 shadow-card sm:-bottom-2 sm:right-auto sm:left-4 sm:w-48">
+          <div className="absolute -bottom-1 right-4 w-36 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-ivory p-2 shadow-card hidden sm:block sm:-bottom-2 sm:right-auto sm:left-4 sm:w-48">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-jabutta-cream">
               <Image
                 src={supportingImage.src}
