@@ -67,7 +67,7 @@ export default function EventSection() {
             </a>
           </div>
 
-          <div className="rounded-[2rem] border border-jabutta-maroon/10 bg-jabutta-ivory p-3 shadow-soft">
+          <div className="w-full max-w-md justify-self-center lg:justify-self-end rounded-[2rem] border border-jabutta-maroon/10 bg-jabutta-ivory p-3 shadow-soft">
             <div className="relative aspect-[3/4] max-h-[32rem] overflow-hidden rounded-[1.5rem] bg-jabutta-cream lg:max-h-[34rem]">
               <Image
                 src={eventImage.src}
