@@ -1,10 +1,22 @@
 import { createWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 
 const steps = [
-  "Klik tombol WhatsApp",
-  "Pilih menu dan jumlah pesanan",
-  "Konfirmasi jadwal pengambilan / pengiriman",
-  "Pesanan disiapkan oleh Kedai Jabutta",
+  {
+    title: "Klik tombol WhatsApp",
+    description: "Hubungi kami langsung dengan menekan tombol WhatsApp yang tersedia. Tombol sudah berisi pesan otomatis untuk memudahkan percakapan.",
+  },
+  {
+    title: "Pilih menu dan jumlah pesanan",
+    description: "Sebutkan menu pilihan Anda (Mie Sop Medan / Roti Ketawa Siantar) beserta jumlah porsi yang Anda inginkan ke admin kami.",
+  },
+  {
+    title: "Konfirmasi jadwal pengambilan / pengiriman",
+    description: "Tentukan waktu pengiriman atau pengambilan pesanan Anda. Kami akan menyesuaikan jadwal agar pesanan tiba dalam kondisi terbaik.",
+  },
+  {
+    title: "Pesanan disiapkan oleh Kedai Jabutta",
+    description: "Kami akan menyiapkan pesanan Anda dengan bahan segar dan resep rumahan terbaik sebelum dikirim langsung ke alamat Anda.",
+  },
 ];
 
 export default function OrderStepsSection() {
@@ -25,16 +37,14 @@ export default function OrderStepsSection() {
 
           <ol className="grid gap-4">
             {steps.map((step, index) => (
-              <li key={step} className="flex gap-4 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-cream/70 p-4 sm:p-5">
+              <li key={step.title} className="flex gap-4 rounded-3xl border border-jabutta-maroon/10 bg-jabutta-cream/70 p-4 sm:p-5">
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-jabutta-maroon font-heading text-xl font-bold text-white">
                   {index + 1}
                 </span>
                 <div className="min-w-0 flex-1">
-                  <h3 className="font-heading text-lg sm:text-2xl font-bold text-jabutta-deep break-words">{step}</h3>
+                  <h3 className="font-heading text-lg sm:text-2xl font-bold text-jabutta-deep break-words">{step.title}</h3>
                   <p className="mt-1 text-sm leading-6 text-jabutta-brown">
-                    {index === 0
-                      ? "Tombol di halaman ini sudah berisi pesan awal agar chat lebih cepat."
-                      : "Tim Jabutta akan menyesuaikan detail pesanan dan waktu yang kamu butuhkan."}
+                    {step.description}
                   </p>
                 </div>
               </li>
