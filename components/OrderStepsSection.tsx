@@ -3,7 +3,7 @@ import { createWhatsAppLink, whatsappMessages } from "@/lib/whatsapp";
 const steps = [
   "Klik tombol WhatsApp",
   "Pilih menu dan jumlah pesanan",
-  "Konfirmasi jadwal pengambilan/pengiriman",
+  "Konfirmasi jadwal pengambilan / pengiriman",
   "Pesanan disiapkan oleh Kedai Jabutta",
 ];
 
@@ -29,8 +29,8 @@ export default function OrderStepsSection() {
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-jabutta-maroon font-heading text-xl font-bold text-white">
                   {index + 1}
                 </span>
-                <div>
-                  <h3 className="font-heading text-2xl font-bold text-jabutta-deep">{step}</h3>
+                <div className="min-w-0 flex-1">
+                  <h3 className="font-heading text-lg sm:text-2xl font-bold text-jabutta-deep break-words">{step}</h3>
                   <p className="mt-1 text-sm leading-6 text-jabutta-brown">
                     {index === 0
                       ? "Tombol di halaman ini sudah berisi pesan awal agar chat lebih cepat."
