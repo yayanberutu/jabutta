@@ -42,7 +42,17 @@ export default function Footer() {
             <a href={createWhatsAppLink(whatsappMessages.general)} target="_blank" rel="noreferrer" className="transition hover:text-jabutta-gold">
               WhatsApp: {WHATSAPP_DISPLAY}
             </a>
-            <p>Instagram: {INSTAGRAM_HANDLE}</p>
+            <p>
+              Instagram:{" "}
+              <a
+                href={`https://instagram.com/${INSTAGRAM_HANDLE.replace("@", "")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="transition hover:text-jabutta-gold"
+              >
+                {INSTAGRAM_HANDLE}
+              </a>
+            </p>
             <p>{LOCATION}</p>
             <p className="font-bold text-jabutta-gold">Menerima pesanan partai kecil & besar</p>
           </div>
