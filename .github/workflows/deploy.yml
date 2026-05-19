@@ -1,0 +1,44 @@
+name: Deploy Jabutta to VPS
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-jabutta-production
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    name: Deploy to VPS
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: ${{ secrets.VPS_PORT }}
+          script: |
+            set -e
+
+            cd /home/admin/apps/jabutta
+
+            echo "Pulling latest code..."
+            git fetch origin main
+            git reset --hard origin/main
+
+            echo "Ensuring shared Docker network exists..."
+            docker network create web || true
+
+            echo "Building and restarting Jabutta..."
+            docker compose -f docker-compose.prod.yml up -d --build
+
+            echo "Cleaning unused Docker images..."
+            docker image prune -f
+
+            echo "Deployment finished."
+            docker ps --filter "name=jabutta-web"
