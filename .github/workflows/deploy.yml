@@ -34,11 +34,12 @@ jobs:
             echo "Ensuring shared Docker network exists..."
             docker network create web || true
 
-            echo "Building and restarting Jabutta..."
-            docker compose -f docker-compose.prod.yml up -d --build
+            echo "Stopping previous Jabutta containers and removing orphans..."
+            docker compose -f docker-compose.prod.yml down --remove-orphans || true
+            docker rm -f jabutta-web || true
 
-            echo "Cleaning unused Docker images..."
-            docker image prune -f
+            echo "Building and restarting Jabutta..."
+            docker compose -f docker-compose.prod.yml up -d --build --remove-orphans
 
             echo "Deployment finished."
-            docker ps --filter "name=jabutta-web"
+            docker ps --filter "name=jabutta"
